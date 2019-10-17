@@ -16,13 +16,10 @@ export class NewProjectComponent implements OnInit {
   @ViewChild( 'guardarProyectoError', { static: false } ) private guardarProyectoError: SwalComponent;
   @ViewChild( 'guardarProyecto', { static: false } ) private guardarProyecto: SwalComponent;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-
     this.project = { id: -1, name: '' };
-
   }
 
   getProjects() {
@@ -30,8 +27,7 @@ export class NewProjectComponent implements OnInit {
   }
 
   addNewProject() {
-
-    if ( this.project.name.length > 4 ) {
+    if (this.project.name.length > 4 ) {
       this.project.name = ""
       this.guardarProyecto.fire();
     }
