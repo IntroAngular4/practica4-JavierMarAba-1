@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{cxbk:function(n,a,e){"use strict";e.d(a,"a",function(){return r});var r={production:!0,title:"Pr\xe1ctica Angular DEV",projects:[{id:0,name:"Learn Angular"},{id:1,name:"Develop My Dream app"},{id:2,name:"Travel around the world"},{id:3,name:"Clean my room"}]}}}]);

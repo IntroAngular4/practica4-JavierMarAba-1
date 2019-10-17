@@ -2,7 +2,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.formatOnType": true,
   "html.format.indentHandlebars": true,
   "html.format.wrapAttributes": "force-aligned",
@@ -10,7 +10,14 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
   "javascript.preferences.importModuleSpecifier": "relative",
   "javascript.preferences.quoteStyle": "single",
-  "prettier.disableLanguages": ["vue", "json", "html", "xlf", "xml", "markdown"],
+  "prettier.disableLanguages": [
+    "vue",
+    "json",
+    "html",
+    "xlf",
+    "xml",
+    "markdown"
+  ],
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "tslint.alwaysShowRuleFailuresAsWarnings": true,

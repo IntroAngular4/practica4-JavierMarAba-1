@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="items">
+    <div class="items-head">
+      <p>Proyectos disponibles</p>
+      <hr />
+    </div>
+    <div class="items-body">
+      <a href="projects/viewer-project/{{proyecto.id}}" *ngFor="let proyecto of proyectos" class="items-body-content">
+        <span>{{proyecto.name}}</span>
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </div>
+    <hr />
+    <div class="items-body">
+        <a href="projects/new-project" class="items-body-content">
+          <span>Añadir nuevo proyecto</span>
+          <i class="fa fa-plus"></i>
+        </a>
+    </div>
+  </div>
+  <hr />
+  <router-outlet></router-outlet>
+</div>
