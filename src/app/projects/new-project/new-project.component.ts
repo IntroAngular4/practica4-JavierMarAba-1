@@ -12,7 +12,6 @@ import { Project } from '../../model/project.model';
 export class NewProjectComponent implements OnInit {
 
   public project: Project;
-  formularioEsValido = true;
 
   @ViewChild( 'guardarProyectoError', { static: false } ) private guardarProyectoError: SwalComponent;
   @ViewChild( 'guardarProyecto', { static: false } ) private guardarProyecto: SwalComponent;
@@ -33,12 +32,10 @@ export class NewProjectComponent implements OnInit {
   addNewProject() {
 
     if ( this.project.name.length > 4 ) {
-      this.formularioEsValido = true;
       this.project.name = ""
       this.guardarProyecto.fire();
     }
     else {
-      this.formularioEsValido = false;
       this.guardarProyectoError.fire();
     }
   }

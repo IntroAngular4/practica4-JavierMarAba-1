@@ -7,7 +7,6 @@
            class="project-form-control"/>
     <button (click)="addNewProject()"><i class="fa fa-save"></i></button>
 </div>
-<label *ngIf="!formularioEsValido" class="warning-message">El nombre del proyecto debe tener al menos 5 carácteres.</label>
 <pre>Nombre de proyecto: {{ project.name | json }}</pre>
 <swal
   #guardarProyectoError
