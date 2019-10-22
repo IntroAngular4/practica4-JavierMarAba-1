@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { environment } from '../../../environments/environment';
-import { Project } from '../../model/project.model';
+import { ProjectService } from '../../services/project.service';
 
 
 @Component( {
@@ -11,29 +10,14 @@ import { Project } from '../../model/project.model';
 } )
 export class NewProjectComponent implements OnInit {
 
-  public project: Project;
-
-  @ViewChild( 'guardarProyectoError', { static: false } ) private guardarProyectoError: SwalComponent;
   @ViewChild( 'guardarProyecto', { static: false } ) private guardarProyecto: SwalComponent;
 
-  constructor() {}
+  constructor(private projectService: ProjectService) {}
 
-  ngOnInit() {
-    this.project = { id: -1, name: '' };
+  ngOnInit() {}
+
+  crearProyecto( nombreProyecto ) {
+    this.projectService.addNewProject( nombreProyecto );
+    this.guardarProyecto.fire();
   }
-
-  getProjects() {
-    return environment.projects;
-  }
-
-  addNewProject() {
-    if (this.project.name.length > 4 ) {
-      this.project.name = ""
-      this.guardarProyecto.fire();
-    }
-    else {
-      this.guardarProyectoError.fire();
-    }
-  }
-
 }

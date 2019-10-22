@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="form-group">
+    <input [(ngModel)]="nombreProyecto"
+           type="text"
+           class="form-control"
+           placeholder="Nombre de proyecto">
+  </div>
+  <div *ngIf="nombreProyecto.length > 0; else sinNombre" class="form-group">
+    <a class="btn btn-primary" (click)="crearProyecto()"><span>Crear proyecto</span></a>
+  </div>
+  <ng-template #sinNombre>
+    <div class="form-group">
+      <a class="btn disabled"><span>Crear proyecto</span></a>
+    </div>
+  </ng-template>
+</div>

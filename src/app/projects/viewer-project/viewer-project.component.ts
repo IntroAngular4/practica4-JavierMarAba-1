@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { environment } from '../../../environments/environment';
-import { Project } from '../../model/project.model';
+import { Project } from '../../models/project.model';
+import { ProjectService } from '../../services/project.service';
 
 @Component( {
   selector: 'app-viewer-project',
@@ -10,11 +10,19 @@ import { Project } from '../../model/project.model';
 } )
 export class ViewerProjectComponent implements OnInit {
 
-  project: Project;
+  proyecto: Project;
+  proyectoDisponible: boolean;
 
-  constructor( private activatedRoute: ActivatedRoute ) {
+  constructor( private activatedRoute: ActivatedRoute,
+               private projectService: ProjectService ) {
+
     let projectId = activatedRoute.snapshot.params['id'];
-    this.project = environment.projects[projectId];
+    this.proyecto = projectService.getProject( projectId );
+
+    if ( this.proyecto ) this.proyectoDisponible = true;
+    else this.proyectoDisponible = false;
+
+    console.log( this.proyecto );
   }
 
   ngOnInit() {

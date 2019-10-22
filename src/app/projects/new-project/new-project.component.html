@@ -1,24 +1,14 @@
-<div style="width: 50%;">
-    <label class="project-form-control" for="name">Nombre de proyecto:</label>
-    <input name="name"
-           type="text"
-           [(ngModel)]="project.name"
-           placeholder="Nombre de projecto"
-           class="project-form-control"/>
-    <button (click)="addNewProject()"><i class="fa fa-save"></i></button>
+<div class="items">
+  <div class="items-head">
+    <p>Nuevo proyecto</p>
+    <hr />
+  </div>
+  <div>
+    <app-new-project-form (nuevoProyecto)="crearProyecto($event)"></app-new-project-form>
+  </div>
 </div>
-<pre>Nombre de proyecto: {{ project.name | json }}</pre>
-<swal
-  #guardarProyectoError
-  title="Error"
-  text="El nombre del proyecto debe tener al menos 5 carácteres."
-  type="error">
+<swal #guardarProyecto
+      title="OK"
+      text="El proyecto se ha guardado con éxito."
+      type="success">
 </swal>
-<swal
-  #guardarProyecto
-  title="OK"
-  text="El proyecto {{project.name}} se ha guardado con éxito."
-  type="success">
-</swal>
-
-
