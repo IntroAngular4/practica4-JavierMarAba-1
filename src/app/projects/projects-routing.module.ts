@@ -8,17 +8,15 @@ import { ViewerProjectComponent } from './viewer-project/viewer-project.componen
 const routes: Routes = [
   {
     path: '',
-    component: ProjectsComponent,
-    children: [
-      {
-        path: 'new-project',
-        component: NewProjectComponent
-      }
-    ]
+    component: ProjectsComponent
   },
   {
     path: 'viewer-project/:id',
     component: ViewerProjectComponent
+  },
+  {
+    path: 'new-project',
+    component: NewProjectComponent
   }
 ];
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 
 @Component( {
@@ -8,12 +10,16 @@ import { ProjectService } from '../../services/project.service';
 } )
 export class HomeComponent implements OnInit {
 
-  cantidadProyectos: number;
+  proyectos$: Observable<Project[]>;
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.cantidadProyectos = this.projectService.getProjectAmount();
+    this.cargarCantidadProyectos();
+  }
+
+  cargarCantidadProyectos() {
+    this.proyectos$ = this.projectService.getProjects();
   }
 
 }

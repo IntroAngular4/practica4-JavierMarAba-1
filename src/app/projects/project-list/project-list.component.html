@@ -1,7 +1,14 @@
-<div class="items-body">
-  <a href="projects/viewer-project/{{proyecto.id}}" *ngFor="let proyecto of proyectos" class="items-body-content">
-    <span>{{proyecto.name}}</span>
-    <i class="fa fa-angle-right"></i>
-  </a>
+<div>
+  <hr />
+  <app-filter-projects (filtroBusquedaCambio)="aplicarFiltro($event)"></app-filter-projects>
+  <hr />
+  <div class="items-body">
+    <span *ngIf="isLoading">Cargando datos....</span>
+    <a *ngFor="let proyecto of proyectosMostrados"
+       href="projects/viewer-project/{{proyecto._id}}"
+       class="items-body-content">
+      <span>{{proyecto.name}}</span>
+      <i class="fa fa-angle-right"></i>
+    </a>
+  </div>
 </div>
-

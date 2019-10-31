@@ -1,33 +1,32 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="items">
-        <div class="items-head">
-          <p>Proyectos disponibles</p>
-          <hr />
-          <app-filter-projects (filtroBusquedaCambio)="aplicarFiltro($event)"></app-filter-projects>
-          <hr />
-        </div>
-        <app-project-list [proyectos]="proyectos"></app-project-list>
-        <hr />
-        <div class="items-body">
-          <span *ngIf="esNuevoProyectoVisible"
-                (click)="toggleNewProject()"
-                class="items-body-content">
-            Ocultar formulario
-            <i class="fa fa-minus"></i>
-          </span>
-          <span *ngIf="!esNuevoProyectoVisible"
-                (click)="toggleNewProject()"
-                class="items-body-content">
-            Añadir nuevo proyecto
-            <i class="fa fa-plus"></i>
-          </span>
-        </div>
-      </div>
+  <div class="items">
+    <div class="items-head">
+      <p>Proyectos disponibles</p>
     </div>
-    <div *ngIf="esNuevoProyectoVisible" class="col">
-      <app-new-project></app-new-project>
+    <div *ngIf="proyectos$ | async as proyectos; else loadingOrError">
+      <app-project-list [proyectos]="proyectos"></app-project-list>
+    </div>
+    <ng-template #loadingOrError>
+        <div *ngIf="loadingError$ | async; else loading">
+          <div class="container">
+            <h4>Error cargando datos.</h4>
+          </div>
+        </div>
+        <ng-template #loading>
+          <div class="container">
+            <h4>Cargando datos...</h4>
+          </div>
+        </ng-template>
+      </ng-template>
+    <hr />
+    <div class="items-body">
+      <span class="items-body-content">
+        <a class="no-decor"
+           href='projects/new-project'>
+          Añadir nuevo proyecto
+        </a>
+        <i class="fa fa-plus"></i>
+      </span>
     </div>
   </div>
   <hr />

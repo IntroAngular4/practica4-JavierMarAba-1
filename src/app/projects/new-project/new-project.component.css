@@ -1,3 +1,8 @@
+.no-decor {
+  text-decoration: none;
+  color: #0B5AA2;
+}
+
 .items {
   width: 300px;
   background: whitesmoke;

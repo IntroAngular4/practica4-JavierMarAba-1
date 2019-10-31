@@ -1,12 +1,20 @@
 <a href="\projects"
    class="no-decor"><i class="fa fa-arrow-left fa-2x"></i></a>
 <hr />
-<div *ngIf="proyectoDisponible; else proyectoNoEncontrado"
-     class="container">
+
+<div *ngIf="proyecto$ | async as proyecto; else loadingOrError">
   <app-viewer-project-form [proyecto]="proyecto"></app-viewer-project-form>
 </div>
-<ng-template #proyectoNoEncontrado >
-  <div class="container">
-    <h3>Proyecto no disponible</h3>
+
+<ng-template #loadingOrError>
+  <div *ngIf="loadingError$ | async; else loading">
+    <div class="container">
+      <h3>Error cargando el proyecto</h3>
+    </div>
   </div>
+  <ng-template #loading>
+    <div class="container">
+      <h3>Cargando datos...</h3>
+    </div>
+  </ng-template>
 </ng-template>

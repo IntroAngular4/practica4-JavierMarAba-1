@@ -1,1 +1,3 @@
-<app-dashboard [cantidadProyectos]="cantidadProyectos"></app-dashboard>
+<div *ngIf="proyectos$ | async as proyectos">
+  <app-dashboard [cantidadProyectos]="proyectos.length"></app-dashboard>
+</div>

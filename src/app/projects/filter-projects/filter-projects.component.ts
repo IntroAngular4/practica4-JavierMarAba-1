@@ -11,13 +11,10 @@ export class FilterProjectsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   cambioFiltro( textoBusqueda: string ) {
 
     this.filtroBusquedaCambio.emit( textoBusqueda );
   }
-
 }

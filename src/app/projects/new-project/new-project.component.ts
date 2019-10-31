@@ -12,12 +12,14 @@ export class NewProjectComponent implements OnInit {
 
   @ViewChild( 'guardarProyecto', { static: false } ) private guardarProyecto: SwalComponent;
 
-  constructor(private projectService: ProjectService) {}
+  constructor( private projectService: ProjectService ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   crearProyecto( nombreProyecto ) {
-    this.projectService.addNewProject( nombreProyecto );
-    this.guardarProyecto.fire();
+    this.projectService.postProject( nombreProyecto )
+      .subscribe( res => {
+        this.guardarProyecto.fire();
+      } );
   }
 }

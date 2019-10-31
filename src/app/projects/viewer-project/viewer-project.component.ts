@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, of, Subject } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 
@@ -10,22 +12,27 @@ import { ProjectService } from '../../services/project.service';
 } )
 export class ViewerProjectComponent implements OnInit {
 
-  proyecto: Project;
-  proyectoDisponible: boolean;
+  projectId: number;
+  proyecto$: Observable<Project>;
+  loadingError$ = new Subject<boolean>();
 
   constructor( private activatedRoute: ActivatedRoute,
-               private projectService: ProjectService ) {
+    private projectService: ProjectService ) {
 
-    let projectId = activatedRoute.snapshot.params['id'];
-    this.proyecto = projectService.getProject( projectId );
-
-    if ( this.proyecto ) this.proyectoDisponible = true;
-    else this.proyectoDisponible = false;
-
-    console.log( this.proyecto );
+    this.projectId = activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
+    this.cargarProyecto()
   }
 
+  cargarProyecto() {
+    this.proyecto$ = this.projectService.getProject(this.projectId).pipe(
+      catchError((error) => {
+        console.error('Error cargando el proyecto: ', error);
+        this.loadingError$.next(true);
+        return of();
+      })
+    );
+  }
 }
