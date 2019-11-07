@@ -1,16 +1,18 @@
-<div class="container">
-  <div class="form-group">
-    <input [(ngModel)]="nombreProyecto"
-           type="text"
-           class="form-control"
-           placeholder="Nombre de proyecto">
-  </div>
-  <div *ngIf="nombreProyecto.length > 0; else sinNombre" class="form-group">
-    <a class="btn btn-primary" (click)="crearProyecto()"><span>Crear proyecto</span></a>
-  </div>
-  <ng-template #sinNombre>
+<form [formGroup]="formProyecto">
+  <div class="container">
     <div class="form-group">
-      <a class="btn disabled"><span>Crear proyecto</span></a>
+      <input name="nombreProyecto"
+             class="form-control"
+             formControlName="nombreProyecto"
+             placeholder="Nombre de proyecto"
+             type="string" />
     </div>
-  </ng-template>
-</div>
+    <div class="form-group">
+      <button class="btn btn-primary"
+              (click)="crearProyecto()"
+              [disabled]="formProyecto.invalid">
+        <span>Crear proyecto</span>
+      </button>
+    </div>
+  </div>
+</form>

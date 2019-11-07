@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component( {
   selector: 'app-new-project-form',
@@ -7,22 +8,25 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 } )
 export class NewProjectFormComponent implements OnInit {
 
-  public nombreProyecto: string;
+  public formProyecto: FormGroup;
+
   @Output() nuevoProyecto = new EventEmitter<string>();
 
-  constructor() { }
+  constructor( private formBuilder: FormBuilder ) { }
 
   ngOnInit() {
-    this.nombreProyecto = "";
+    this.buildForm();
   }
 
   crearProyecto() {
+    let nombreProyecto = this.formProyecto.value['nombreProyecto'];
+    this.formProyecto.reset();
+    this.nuevoProyecto.emit( nombreProyecto );
+  }
 
-    if ( this.nombreProyecto.length > 0 ) {
-
-      this.nuevoProyecto.emit( this.nombreProyecto );
-      //Limpiamos el formulario para un nuevo proyecto.
-      this.nombreProyecto = "";
-    }
+  private buildForm() {
+    this.formProyecto = this.formBuilder.group( {
+      nombreProyecto: ['', [Validators.required]]
+    } );
   }
 }

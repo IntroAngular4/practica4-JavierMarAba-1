@@ -1,7 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
-
 
 @Component( {
   selector: 'app-new-project',
@@ -10,16 +8,15 @@ import { ProjectService } from '../../services/project.service';
 } )
 export class NewProjectComponent implements OnInit {
 
-  @ViewChild( 'guardarProyecto', { static: false } ) private guardarProyecto: SwalComponent;
 
   constructor( private projectService: ProjectService ) { }
 
   ngOnInit() { }
 
   crearProyecto( nombreProyecto ) {
+
     this.projectService.postProject( nombreProyecto )
       .subscribe( res => {
-        this.guardarProyecto.fire();
       } );
   }
 }

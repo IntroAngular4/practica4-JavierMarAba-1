@@ -1,8 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { NotificacionesStoreService } from './services/notificaciones-store.service';
+
 
 
 
@@ -13,9 +17,13 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     CoreModule,
-    SweetAlert2Module.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    NotificacionesStoreService,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 } )
 export class AppModule { }
