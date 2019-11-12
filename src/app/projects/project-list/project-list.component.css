@@ -9,7 +9,7 @@
 
 .items-body a {
   text-decoration: none;
-  color: #197cd8;
+  color: #3F51B5;
 }
 
 .items-body-content {
@@ -25,13 +25,13 @@
 
 .items-body-content:hover {
   border-radius: 15px;
-  border: 1px solid #0B5AA2;
+  border: 1px solid #3F51B580;
 }
 
 .items-body-content i {
   align-self: center;
   font-size: 15px;
-  color: #0B5AA2;
+  color: #7C4DFF;
   font-weight: bold;
   animation: icon 1.5s infinite forwards;
 }

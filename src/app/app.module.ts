@@ -1,3 +1,4 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,18 +8,17 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NotificacionesStoreService } from './services/notificaciones-store.service';
 
-
-
-
 @NgModule( {
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    LayoutModule,
+
   ],
   providers: [
     NotificacionesStoreService,

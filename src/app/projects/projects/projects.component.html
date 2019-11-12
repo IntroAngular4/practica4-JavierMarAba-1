@@ -9,12 +9,12 @@
     <ng-template #loadingOrError>
         <div *ngIf="loadingError$ | async; else loading">
           <div class="container">
-            <h4>Error cargando datos.</h4>
+            <h5>Error cargando datos.</h5>
           </div>
         </div>
         <ng-template #loading>
           <div class="container">
-            <h4>Cargando datos...</h4>
+            <h5>Cargando datos...</h5>
           </div>
         </ng-template>
       </ng-template>
@@ -29,5 +29,4 @@
       </span>
     </div>
   </div>
-  <hr />
 </div>

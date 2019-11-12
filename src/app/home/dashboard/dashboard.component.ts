@@ -9,6 +9,12 @@ export class DashboardComponent implements OnInit {
 
   @Input() cantidadProyectos: number;
 
+  cards = [
+    { title: 'Card 1', cols: 2, rows: 1, content: '' },
+    { title: 'Card 2', cols: 1, rows: 1, content: '' },
+    { title: 'Card 3', cols: 1, rows: 1, content: '' }
+  ];
+
   constructor() { }
 
   ngOnInit() {

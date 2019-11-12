@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from '../app-routing.module';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -19,7 +21,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
     LayoutComponent

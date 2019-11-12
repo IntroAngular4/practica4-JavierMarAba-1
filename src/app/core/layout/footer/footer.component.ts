@@ -23,12 +23,12 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
 
-    this.notificacionesStore.select$()
-      .subscribe( notificaciones =>
-        notificaciones.forEach( n => {
-          this.mensajeFooter = n.mensaje;
-          this.mostrarToast( n );
-        } ) );
+    this.notificacionesStore.select$().subscribe( notificaciones =>
+      notificaciones.forEach( n => {
+        this.mensajeFooter = n.mensaje;
+        this.mostrarToast( n );
+      } )
+    );
   }
 
   mostrarToast( notificacion: Notificacion ) {
@@ -44,7 +44,6 @@ export class FooterComponent implements OnInit {
           notificationTitle = 'Error';
           this.toastr.error( notificacion.mensaje, notificationTitle, this.toastrOptions )
           break;
-      }
+    }
   }
-
 }

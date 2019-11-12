@@ -1,19 +1,19 @@
 .no-decor {
   text-decoration: none;
-  color: #0B5AA2;
+  color: #3F51B5;
 }
 
 .items {
   width: 300px;
   background: whitesmoke;
   box-shadow: 0 3px 6px rgba(black,0.16), 0 3px 6px rgba(black,0.23);
-  border-top: 10px solid #0B5AA2;
+  border-top: 10px solid #3F51B5;
 }
 
 .items-head p{
   padding: 5px 20px;
   margin: 10px;
-  color: #0B5AA2;
+  color: #3F51B5;
   font-weight: bold;
   font-size: 20px;
 }
@@ -21,7 +21,7 @@
 .items-head hr {
   width: 20%;
   margin: 0px 30px;
-  border: 1px solid #0B5AA2;
+  border: 1px solid #3F51B5;
 }
 
 .items-body {
@@ -48,13 +48,13 @@
 
 .items-body-content:hover {
   border-radius: 15px;
-  border: 1px solid #0B5AA2;
+  border: 1px solid #3F51B5;
 }
 
 .items-body-content i {
   align-self: center;
   font-size: 15px;
-  color: #0B5AA2;
+  color: #3F51B5;
   font-weight: bold;
   animation: icon 1.5s infinite forwards;
 }
