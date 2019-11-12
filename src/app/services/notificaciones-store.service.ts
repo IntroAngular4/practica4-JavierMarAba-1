@@ -16,7 +16,6 @@ export class NotificacionesStoreService {
   public dispatch( notificacion: Notificacion ) {
 
     if ( notificacion ) {
-      console.log( notificacion);
       this.notifications.push( notificacion );
       this.notifications$.next( [...this.notifications] );
     }
